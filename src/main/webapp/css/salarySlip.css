@@ -1,0 +1,369 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            position: fixed;
+        }
+        
+        .main-content {
+            flex: 1;
+            margin-left: 250px;
+            padding: 20px;
+            background-color: #f5f7fa;
+            min-height: 100vh;
+        }
+        
+        .payslip-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 70px;
+            }
+            
+            .main-content {
+                margin-left: 70px;
+            }
+        }
+
+/* Payslip Container */
+
+
+/* Header Section */
+.payslip-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.company-logo img {
+    height: 60px;
+}
+
+.company-info h1 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.company-info p {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-bottom: 3px;
+}
+
+/* Payslip Title */
+.payslip-title {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.payslip-title h2 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.payslip-number {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+/* Employee Details */
+.employee-details {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.detail-section, .attendance-section {
+    flex: 1;
+}
+
+.detail-section h3, .attendance-section h3 {
+    font-size: 16px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-grid, .attendance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.detail-item, .attendance-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label, .attendance-label {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-bottom: 3px;
+}
+
+.detail-value, .attendance-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.attendance-progress {
+    grid-column: span 2;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4e73df, #224abe);
+    border-radius: 4px;
+}
+
+.progress-text {
+    font-size: 12px;
+    color: #4e73df;
+    text-align: right;
+}
+
+/* Salary Breakdown */
+.salary-breakdown {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.earnings, .deductions {
+    flex: 1;
+}
+
+.earnings h3, .deductions h3 {
+    font-size: 16px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.earnings-table, .deductions-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.earnings-table td, .deductions-table td {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.earnings-table tr.total td, .deductions-table tr.total td {
+    font-weight: 600;
+    background-color: #f8f9fa;
+}
+
+/* Net Salary */
+.net-salary {
+    background-color: #f0f3ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.net-amount {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.net-label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.net-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4e73df;
+}
+
+.payment-method {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+/* Footer */
+.payslip-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.generated-info p {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.company-stamp {
+    text-align: center;
+}
+
+.stamp-placeholder {
+    border: 1px dashed #ccc;
+    padding: 10px 20px;
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.print-btn, .download-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.print-btn {
+    background-color: #4e73df;
+    color: white;
+}
+
+.print-btn:hover {
+    background-color: #3a5bd9;
+    transform: translateY(-2px);
+}
+
+.download-btn {
+    background-color: #1cc88a;
+    color: white;
+}
+
+.download-btn:hover {
+    background-color: #17a673;
+    transform: translateY(-2px);
+}
+
+/* Error Message */
+.error-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #e74a3b;
+}
+
+.error-message i {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.error-message h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.error-message p {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+    }
+    
+    .payslip-container {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+    }
+    
+    .action-buttons {
+        display: none;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .employee-details, .salary-breakdown {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .detail-grid, .attendance-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .net-salary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .payslip-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .company-stamp {
+        align-self: flex-end;
+    }
+}

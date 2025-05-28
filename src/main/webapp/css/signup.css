@@ -1,0 +1,299 @@
+/* General Styles */
+@charset "UTF-8";
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Signup Container */
+.signup-container {
+    display: flex;
+    height: 100vh;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Side - Signup Form */
+.signup-left {
+    flex: 1;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 8%;
+}
+
+.signup-header {
+    margin-bottom: 40px;
+}
+
+.signup-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.signup-header p {
+    color: #7f8c8d;
+    font-size: 1rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 0.9rem;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    color: #7f8c8d;
+    font-size: 1rem;
+}
+
+.input-group .toggle-password {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: #7f8c8d;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.15);
+    outline: none;
+}
+
+/* Password Strength */
+.password-strength {
+    margin-top: 8px;
+}
+
+.strength-meter {
+    height: 4px;
+    background: #ddd;
+    border-radius: 2px;
+    margin-bottom: 4px;
+    transition: all 0.3s;
+}
+
+.strength-text {
+    font-size: 0.75rem;
+    color: #7f8c8d;
+}
+
+/* Terms Checkbox */
+.terms {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.terms input {
+    margin-right: 8px;
+    accent-color: #4e73df;
+}
+
+.terms label {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+}
+
+.terms a {
+    color: #4e73df;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+/* Signup Button */
+.signup-button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.signup-button:hover {
+    background: linear-gradient(135deg, #3a5bd9 0%, #1d3c8f 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 115, 223, 0.3);
+}
+
+/* Messages */
+.message {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Login Link */
+.login-link {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.login-link a {
+    color: #4e73df;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.login-link a:hover {
+    color: #3a5bd9;
+    text-decoration: underline;
+}
+
+/* Right Side - Branding */
+.signup-right {
+    flex: 1;
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    color: white;
+    text-align: center;
+}
+
+.company-branding {
+    margin-bottom: 50px;
+}
+
+.company-branding img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.company-branding h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.company-branding p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Benefits */
+.benefits {
+    width: 100%;
+    max-width: 400px;
+}
+
+.benefit-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+.benefit-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.benefit-item i {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.benefit-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.benefit-item p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .signup-right {
+        display: none;
+    }
+    
+    .signup-left {
+        padding: 0 15%;
+    }
+}
+
+@media (max-width: 576px) {
+    .signup-left {
+        padding: 0 10%;
+    }
+    
+    .signup-header h1 {
+        font-size: 2rem;
+    }
+    
+    .terms label {
+        font-size: 0.8rem;
+    }
+}

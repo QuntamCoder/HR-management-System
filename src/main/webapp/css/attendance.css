@@ -1,0 +1,354 @@
+@charset "UTF-8";
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles (from previous design) */
+.sidebar {
+    width: 250px;
+    background: #fff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    position: fixed;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #2c3e50;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.header h1 i {
+    color: #4e73df;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.breadcrumb a {
+    color: #4e73df;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.date-filter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.date-filter label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.date-filter label i {
+    color: #7f8c8d;
+}
+
+.date-filter input[type="date"] {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    background: #4e73df;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    background: #3a5bd9;
+    transform: translateY(-2px);
+}
+
+/* Card Styles */
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.card-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.card-header h2 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.attendance-summary {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.summary-item {
+    padding: 12px 20px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.summary-item i {
+    font-size: 16px;
+}
+
+.summary-item.present {
+    background-color: #e6f7ee;
+    color: #28a745;
+}
+
+.summary-item.absent {
+    background-color: #fce8e6;
+    color: #dc3545;
+}
+
+.summary-item.total {
+    background-color: #f0f3ff;
+    color: #4e73df;
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+    padding: 0 20px;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.attendance-table th {
+    text-align: left;
+    padding: 12px 15px;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    white-space: nowrap;
+}
+
+.attendance-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.employee-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #4e73df;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.department {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.department.hr {
+    background-color: #f0f7ff;
+    color: #1a73e8;
+}
+
+.department.it {
+    background-color: #f6f0ff;
+    color: #673ab7;
+}
+
+.department.finance {
+    background-color: #fff0f6;
+    color: #e91e63;
+}
+
+.department.marketing {
+    background-color: #f0fff4;
+    color: #4caf50;
+}
+
+.department.operations {
+    background-color: #fff8e6;
+    color: #ff9800;
+}
+
+/* Status Styles */
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.present {
+    background-color: #e6f7ee;
+    color: #28a745;
+}
+
+.status.absent {
+    background-color: #fce8e6;
+    color: #dc3545;
+}
+
+.status.pending {
+    background-color: #fff8e6;
+    color: #ff9800;
+}
+
+/* Action Buttons */
+.actions-cell {
+    white-space: nowrap;
+}
+
+.attendance-form {
+    display: flex;
+    gap: 8px;
+}
+
+.present-btn, .absent-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s;
+}
+
+.present-btn {
+    background-color: #e6f7ee;
+    color: #28a745;
+}
+
+.present-btn:hover, .present-btn.active {
+    background-color: #28a745;
+    color: white;
+}
+
+.absent-btn {
+    background-color: #fce8e6;
+    color: #dc3545;
+}
+
+.absent-btn:hover, .absent-btn.active {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 70px;
+    }
+    
+    .main-content {
+        margin-left: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .date-filter {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .attendance-summary {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .attendance-form {
+        flex-direction: column;
+        gap: 6px;
+    }
+    
+    .present-btn, .absent-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .employee-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    
+    .avatar {
+        display: none;
+    }
+}

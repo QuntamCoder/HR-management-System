@@ -1,0 +1,138 @@
+
+ create database hr_management;
+CREATE TABLE hr_users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE employees (
+    emp_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    phone_number VARCHAR(15),
+    department VARCHAR(50),
+    designation VARCHAR(50),
+    hire_date DATE,
+    salary DECIMAL(10, 2),
+    status ENUM('Active', 'Inactive') DEFAULT 'Active'
+);
+
+CREATE TABLE attendance (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    emp_id INT NOT NULL,
+    date DATE NOT NULL,
+    status ENUM('Present', 'Absent') NOT NULL,
+    UNIQUE(emp_id, date),
+    FOREIGN KEY (emp_id) REFERENCES employees(emp_id)
+);
+
+
+
+
+
+// for  oracle 
+CREATE TABLE hr_users (
+    id NUMBER PRIMARY KEY,
+    username VARCHAR2(50) NOT NULL UNIQUE,
+    password VARCHAR2(255) NOT NULL
+);
+
+-- Sequence and trigger to auto-increment ID
+CREATE SEQUENCE hr_users_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER hr_users_trigger
+BEFORE INSERT ON hr_users
+FOR EACH ROW
+BEGIN
+    IF :new.id IS NULL THEN
+        SELECT hr_users_seq.NEXTVAL INTO :new.id FROM dual;
+    END IF;
+END;
+/
+
+
+
+CREATE TABLE employees (
+    emp_id NUMBER PRIMARY KEY,
+    first_name VARCHAR2(50) NOT NULL,
+    last_name VARCHAR2(50) NOT NULL,
+    email VARCHAR2(100) NOT NULL UNIQUE,
+    phone_number VARCHAR2(15),
+    department VARCHAR2(50),
+    designation VARCHAR2(50),
+    hire_date DATE,
+    salary NUMBER(10, 2),
+    status VARCHAR2(10) DEFAULT 'Active' CHECK (status IN ('Active', 'Inactive'))
+);
+
+CREATE SEQUENCE employees_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER employees_trigger
+BEFORE INSERT ON employees
+FOR EACH ROW
+BEGIN
+    IF :new.emp_id IS NULL THEN
+        SELECT employees_seq.NEXTVAL INTO :new.emp_id FROM dual;
+    END IF;
+END;
+/
+
+
+CREATE TABLE attendance (
+    id NUMBER PRIMARY KEY,
+    emp_id NUMBER NOT NULL,
+    date_worked DATE NOT NULL,
+    status VARCHAR2(10) NOT NULL CHECK (status IN ('Present', 'Absent')),
+    CONSTRAINT unique_emp_date UNIQUE (emp_id, date_worked),
+    FOREIGN KEY (emp_id) REFERENCES employees(emp_id)
+);
+
+CREATE SEQUENCE attendance_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER attendance_trigger
+BEFORE INSERT ON attendance
+FOR EACH ROW
+BEGIN
+    IF :new.id IS NULL THEN
+        SELECT attendance_seq.NEXTVAL INTO :new.id FROM dual;
+    END IF;
+END;
+/
+
+
+INSERT INTO hr_users (username, password)
+VALUES ('admin_user', 'securePass@123');
+
+INSERT INTO hr_users (username, password)
+VALUES ('jane_doe', 'jane@oracle123');
+
+
+
+
+INSERT INTO employees (
+    first_name, last_name, email, phone_number,
+    department, designation, hire_date, salary, status
+) VALUES (
+    'John', 'Smith', 'john.smith@example.com', '9876543210',
+    'Finance', 'Accountant', TO_DATE('2021-06-15', 'YYYY-MM-DD'), 60000.00, 'Active'
+);
+
+INSERT INTO employees (
+    first_name, last_name, email, phone_number,
+    department, designation, hire_date, salary, status
+) VALUES (
+    'Priya', 'Verma', 'priya.verma@example.com', '9123456789',
+    'HR', 'HR Manager', TO_DATE('2022-01-10', 'YYYY-MM-DD'), 75000.00, 'Active'
+);
+
+
+-- Assuming emp_id = 1 exists
+INSERT INTO attendance (emp_id, date_worked, status)
+VALUES (1, TO_DATE('2024-05-17', 'YYYY-MM-DD'), 'Present');
+
+-- Assuming emp_id = 2 exists
+INSERT INTO attendance (emp_id, date_worked, status)
+VALUES (2, TO_DATE('2024-05-17', 'YYYY-MM-DD'), 'Absent');
